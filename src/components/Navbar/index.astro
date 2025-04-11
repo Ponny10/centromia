@@ -1,0 +1,49 @@
+---
+const navbarOptions = [
+  {
+    href: "/",
+    id: 0,
+    page: "Inicio",
+  },
+  {
+    href: "/servicios",
+    id: 1,
+    page: "Servicios",
+  },
+  {
+    href: "/productos",
+    id: 2,
+    page: "Productos",
+  },
+  {
+    href: "/nosotros",
+    id: 3,
+    page: "Nosotros",
+  },
+  {
+    href: "/equipo",
+    id: 4,
+    page: "Equipo",
+  },
+  {
+    href: "/contacto",
+    id: 5,
+    page: "Contacto",
+  },
+];
+
+const { pathname } = Astro.url;
+---
+
+<nav>
+  <div>
+    {
+      navbarOptions.map(({ href, page }) => (
+        <div>
+          <a href={href}>{page}</a>
+          {pathname === href && <hr />}
+        </div>
+      ))
+    }
+  </div>
+</nav>

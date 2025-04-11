@@ -1,0 +1,39 @@
+---
+import { ClientRouter } from "astro:transitions";
+import './styles.css';
+import Navbar from "components/Navbar/index.astro";
+
+interface Props {
+  description?: string;
+  image?: string;
+  title: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO -->
+    <meta name="description" content={description} />
+    <meta name="author" content="Adolfo Reyes" />
+
+    <!-- Metatags -->
+    <meta property="or:title" content={title} />
+    <meta property="or:description" content={description} />
+    <meta property="or:image" content={image} />
+
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
