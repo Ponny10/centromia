@@ -1,0 +1,37 @@
+---
+import type { JSX } from 'astro/jsx-runtime';
+
+interface Props {
+  alt: string;
+  border?: number;
+  class?: string;
+  height?: number;
+  size?: number;
+  src: string;
+  style?: JSX.CSSProperties;
+  width?: number;
+}
+
+const {
+  alt,
+  border = 0,
+  class: className = "",
+  height = 12,
+  size,
+  src,
+  style,
+  width = 12,
+} = Astro.props;
+---
+
+<img
+  alt={alt}
+  class={className}
+  src={src}
+  style={{
+    borderRadius: `${border}px`,
+    height: `${size ? size : height ? height : 0}px`,
+    width: `${size ? size : width ? width : 0}px`,
+    ...style,
+  }}
+/>

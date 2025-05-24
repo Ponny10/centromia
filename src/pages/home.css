@@ -1,0 +1,10 @@
+.home_main_information_content {
+    background-color: var(--color-white);
+    padding: 6px;
+}
+
+.home_main_information {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 36px;
+}

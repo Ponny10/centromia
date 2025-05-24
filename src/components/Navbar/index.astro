@@ -1,4 +1,7 @@
 ---
+import Icon from "components/Icon/index.astro";
+import "./styles.css";
+
 const navbarOptions = [
   {
     href: "/",
@@ -36,14 +39,24 @@ const { pathname } = Astro.url;
 ---
 
 <nav>
-  <div>
+  <Icon
+    alt="Centro MIA logotipo"
+    border={6}
+    height={70}
+    src="centromia_logo.svg"
+    width={150}
+  />
+  <div class="nav_menu">
     {
       navbarOptions.map(({ href, page }) => (
-        <div>
-          <a href={href}>{page}</a>
-          {pathname === href && <hr />}
-        </div>
+        <a href={href} class="nav_option `${pathname === href && 'nav_option_active'}`">{page}</a>
       ))
     }
   </div>
+  <Icon
+    class="btn_menu"
+    alt="Menu opciones de navegación"
+    size={36}
+    src="menu.svg"
+  />
 </nav>

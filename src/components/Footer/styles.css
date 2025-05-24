@@ -1,0 +1,7 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-green);
+    padding-bottom: 24px;
+    padding-top: 12px;
+}

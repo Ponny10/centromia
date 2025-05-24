@@ -1,4 +1,25 @@
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    /* font-family: 'Segoe UI'; */
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+
+    --background-dark: #212529;
+    --background-dark-opacity: #21252970;
+    --background-white: #FFF;
+
+    --color-blue: #00B9D1;
+    --color-green: #9FCC3B;
+    --color-purple: #C89DC8;
+    --color-white: #fafafa;
+    --color-dark: #212529;
+    --color--dark-opacity: #21252970;
+}
+
 body {
-    background-color: #fff;
-    margin: 0%;
+    background-color: var(--background-white);
 }

@@ -1,0 +1,62 @@
+---
+import Card from "components/Card/index.astro";
+import Text from "components/Text/index.astro";
+import Icon from "components/Icon/index.astro";
+import "./styles.css";
+
+const footerData = [
+  {
+    img: "centromia_direccion.svg",
+    text: "Colombia #132, Chapultepec, 66450 San Nicolás de los Garza, N.L.",
+  },
+  {
+    img: "centromia_telefono.svg",
+    text: "81-2721-4677",
+  },
+  {
+    img: "centromia_whatsapp.svg",
+    text: "81-2013-5949",
+  },
+];
+---
+
+<footer>
+  {
+    footerData.map(({img, text}) => (
+      <Card
+        boxShadow="0px 4px 12px -2px var(--color--dark-opacity)"
+        marginBottom={12}
+        marginTop={12}
+        marginLeft={6}
+        marginRight={6}
+        padding={12}
+        borderRadius={6}
+        backgroundColor="var(--color-white)"
+      >
+        <div
+          style={{
+            borderRadius: "100%",
+            padding: "12px",
+            height: "60px",
+            width: "60px",
+            border: "1px solid var(--color-blue) ",
+          }}
+        >
+          <Icon
+            alt="Icono de google maps"
+            src={img}
+            size={36}
+          />
+        </div>
+        <Text
+          fontWeight="200"
+          color="var(--color-black)"
+          textAlign={"center"}
+          marginTop={6}
+        >
+            {text}
+        </Text>
+      </Card>
+    ))
+  }
+</footer>

@@ -1,0 +1,57 @@
+---
+import type { JSX } from "astro/jsx-runtime";
+
+interface Props {
+  borderRadius: number;
+  margin?: number;
+  marginBottom?: number;
+  marginLeft?: number;
+  marginRight?: number;
+  marginTop?: number;
+  padding?: number;
+  paddingBottom?: number;
+  paddingLeft?: number;
+  paddingRight?: number;
+  paddingTop?: number;
+  styles?: JSX.CSSProperties;
+  text?: string;
+  width?: number;
+}
+
+const {
+  borderRadius,
+  text,
+  styles,
+  margin,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  marginTop,
+  padding,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
+  width,
+} = Astro.props;
+---
+
+<button
+  style={{
+    borderRadius: `${borderRadius}px`,
+    padding: `${padding}px`,
+    margin: `${margin}px`,
+    marginBottom: `${marginBottom}px`,
+    marginLeft: `${marginLeft}px`,
+    marginRight: `${marginRight}px`,
+    marginTop: `${marginTop}px`,
+    paddingBottom: `${paddingBottom}px`,
+    paddingLeft: `${paddingLeft}px`,
+    paddingRight: `${paddingRight}px`,
+    paddingTop: `${paddingTop}px`,
+    width: `${width ? width+'px' : '95%'}`,
+    ...styles,
+  }}
+>
+  {text ? text : <slot />}
+</button>

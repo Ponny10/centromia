@@ -1,0 +1,59 @@
+---
+import type { string } from "astro:schema";
+
+interface Props {
+  backgroundColor?: string;
+  borderRadius?: number;
+  boxShadow?: string;
+  padding?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
+  paddingLeft?: number;
+  paddingRight?: number;
+  margin?: number;
+  marginTop?: number;
+  marginBottom?: number;
+  marginLeft?: number;
+  marginRight?: number;
+}
+
+const {
+  backgroundColor,
+  borderRadius = 0,
+  boxShadow,
+  padding,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  margin,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+} = Astro.props;
+---
+
+<div
+  style={{
+    alignItems: "center",
+    boxShadow: boxShadow,
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: backgroundColor,
+    borderRadius: `${borderRadius}px`,
+    padding: `${padding}px`,
+    paddingTop: `${paddingTop}px`,
+    paddingBottom: `${paddingBottom}px`,
+    paddingLeft: `${paddingLeft}px`,
+    paddingRight: `${paddingRight}px`,
+    margin: `${margin}px`,
+    marginTop: `${marginTop}px`,
+    marginBottom: `${marginBottom}px`,
+    marginLeft: `${marginLeft}px`,
+    marginRight: `${marginRight}px`,
+  }}
+>
+  <slot />
+</div>

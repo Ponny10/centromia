@@ -1,0 +1,61 @@
+---
+import type { JSX } from "astro/jsx-runtime";
+
+type TypeText = "h1" | "h2" | "h3" | "h4" | "p";
+type TextAlign = "left" | "right" | "center" | "justify";
+type FontWeight =
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900"
+  | "bold";
+
+interface Props {
+  backgroundColor?: string;
+  children?: string | JSX.Element;
+  color?: string;
+  fontSize?: number;
+  fontWeight?: FontWeight;
+  marginBottom?: number;
+  marginTop?: number;
+  styles?: JSX.CSSProperties;
+  text?: string;
+  textAlign?: TextAlign;
+  type?: TypeText;
+}
+
+const {
+  backgroundColor = "",
+  color = "white",
+  fontSize = 12,
+  fontWeight = "100",
+  marginBottom,
+  marginTop,
+  styles,
+  text,
+  textAlign = "left",
+  type,
+} = Astro.props;
+
+const Text = type ? type : "p";
+---
+
+<Text
+  style={{
+    backgroundColor: backgroundColor,
+    color: color,
+    fontSize: `${fontSize}px`,
+    fontWeight: fontWeight,
+    marginBottom: `${marginBottom}px`,
+    marginTop: `${marginTop}px`,
+    textAlign: textAlign,
+    ...styles,
+  }}
+>
+  {text ? text : <slot />}
+</Text>
